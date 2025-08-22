@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 @DefaultUrl("https://www.saucedemo.com/")
+
 public class SaucePage extends WebDriverDOM {
 
     @FindBy(id="user-name")
