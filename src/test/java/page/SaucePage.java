@@ -1,7 +1,7 @@
 package page;
 
-import generic.WebDriverDOM;
 import net.serenitybdd.annotations.DefaultUrl;
+import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,9 +11,9 @@ import java.time.Duration;
 
 @DefaultUrl("https://www.saucedemo.com/")
 
-public class SaucePage extends WebDriverDOM {
+public class SaucePage extends PageObject {
 
-    @FindBy(id="user-name")
+    @FindBy(id="user-name")//Una ves que se identifica el elemento, lo usamos para enviar texto, con sendeKeys.
     private WebElement txtusuario;
 
     @FindBy(xpath = "//*[@id=\"password\"]")

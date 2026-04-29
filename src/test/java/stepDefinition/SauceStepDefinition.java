@@ -1,21 +1,44 @@
 package stepDefinition;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import page.SaucePage;
-import util.WebDriverManager;
 
 public class SauceStepDefinition {
     SaucePage saucePage =new SaucePage();
 
+    @Before
+    public void setupWebDriver() {
+        WebDriverManager.chromedriver().setup();
+    }
+
     @Given("carga la pagina web de Sauce Demo")
     public void cargaLaPaginaWebDeSauceDemo() {
-        saucePage.setDriver(WebDriverManager.inicializarBrowser());
         saucePage.open();
-        //Assert.assertEquals("SauceDemo", saucePage.getTitle());
+        saucePage.getDriver().manage().window().maximize();
     }
+
+    // Para @Tag01
+    @When("ingreso el {string}")
+    public void ingresoEl(String usuario) {
+        saucePage.ingresarUsuario(usuario);
+    }
+
+    @And("ingreso {string}")
+    public void ingreso(String contrasena) {
+        saucePage.ingresarContrasena(contrasena);
+    }
+
+    @Then("doy clic en Login")
+    public void doyClicEnLogin() {
+        saucePage.login();
+    }
+
+    //Para @Tag02
 
     @And("ingreso el {string} en el campo username")
     public void ingresoElEnElCampoUsername(String arg0) {

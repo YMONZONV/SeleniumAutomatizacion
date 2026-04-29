@@ -10,8 +10,8 @@ When ingreso el "<usuario>"
 And ingreso "<contrasena>"
 Then doy clic en Login
 Examples:
-| usuario       | contrasena   |
-| standard_use | secret_sauc |
+| usuario         | contrasena   |
+| locked_out_user | secret_sauce |
 
 
 @Tag02
@@ -32,4 +32,3 @@ Scenario Outline: 2. El usuario inicia sesion y completa un proceso de compra
   Examples:
     | usuario       | contrasena   | primernombre | apellido | codpostal |
     | standard_user | secret_sauce | Yury         | Monzon   | Varela    |
-  #  | standard_use  | secret_sauc  | Yury         | Monzon   | Varela    |
